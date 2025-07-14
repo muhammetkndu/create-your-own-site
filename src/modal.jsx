@@ -5,6 +5,7 @@ import HomeSelector from "./homeSelector";
 import FooterSelector from "./footerSelector";
 import { useNavigate } from "react-router";
 import { AppContext } from "./ContextProvider";
+import { LOADING_TIMES } from "./constants";
 
 export default function Modal({ isOpen, onClose, onLoadingStart, children }) {
     const navigate = useNavigate();
@@ -16,8 +17,8 @@ export default function Modal({ isOpen, onClose, onLoadingStart, children }) {
             setIsLoading(true);
             onLoadingStart(); // App'teki loading state'i aktif et
 
-            // 3 saniye bekle
-            await new Promise(resolve => setTimeout(resolve, 3000));
+            // Loading süresi kadar bekle
+            await new Promise(resolve => setTimeout(resolve, LOADING_TIMES.SITE_CREATION));
 
             // Loading tamamlandı, sayfaya yönlendir
             navigate('/PrewievPage');

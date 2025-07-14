@@ -9,31 +9,50 @@ import Home3 from "./home3";
 import Footer1 from "./footer1"
 import Footer2 from "./footer2"
 import Footer3 from "./footer3"
+import { COMPONENT_TYPES } from "./constants";
 
 export default function PrewievPage() {
     const { selectedNavbar, selectedHome, selectedFooter } = useContext(AppContext);
+
+    // Bileşen mapping'leri
+    const navbarComponents = {
+        navbar1: Navbar1,
+        navbar2: Navbar2,
+        navbar3: Navbar3
+    };
+
+    const homeComponents = {
+        home1: Home1,
+        home2: Home2,
+        home3: Home3
+    };
+
+    const footerComponents = {
+        footer1: Footer1,
+        footer2: Footer2,
+        footer3: Footer3
+    };
+
+    // Seçili bileşenleri al
+    const SelectedNavbar = navbarComponents[selectedNavbar];
+    const SelectedHome = homeComponents[selectedHome];
+    const SelectedFooter = footerComponents[selectedFooter];
 
     return (
         <div className="min-h-screen flex flex-col">
             {/* Navbar - Üstte sabit */}
             <div className="w-full flex-shrink-0">
-                {selectedNavbar === "navbar1" && <Navbar1 />}
-                {selectedNavbar === "navbar2" && <Navbar2 />}
-                {selectedNavbar === "navbar3" && <Navbar3 />}
+                {SelectedNavbar && <SelectedNavbar />}
             </div>
 
             {/* Home - Ana içerik alanı, esnek büyüme */}
             <div className="flex-1 w-full">
-                {selectedHome === "home1" && <Home1 />}
-                {selectedHome === "home2" && <Home2 />}
-                {selectedHome === "home3" && <Home3 />}
+                {SelectedHome && <SelectedHome />}
             </div>
 
             {/* Footer - Altta sabit */}
             <div className="w-full flex-shrink-0">
-                {selectedFooter === "footer1" && <Footer1 />}
-                {selectedFooter === "footer2" && <Footer2 />}
-                {selectedFooter === "footer3" && <Footer3 />}
+                {SelectedFooter && <SelectedFooter />}
             </div>
         </div>
     )

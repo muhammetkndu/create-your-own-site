@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router';
+import { LOADING_TIMES, ROUTES } from './constants';
 
 const LoadingScreen = ({ onLoadingComplete }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // 3 saniye sonra preview sayfasına yönlendir
+        // Loading süresi sonra preview sayfasına yönlendir
         const timer = setTimeout(() => {
             onLoadingComplete(); // Loading state'ini sıfırla
-            navigate('/PrewievPage');r
-        }, 3000);
+            navigate(ROUTES.PREVIEW);
+        }, LOADING_TIMES.SITE_CREATION);
 
         return () => clearTimeout(timer);
     }, [navigate, onLoadingComplete]);

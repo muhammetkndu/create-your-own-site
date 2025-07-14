@@ -83,7 +83,7 @@ const Home2 = () => {
             {/* Destinasyon 2 */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-transform duration-300 hover:scale-105">
               <img
-                src="https://images.unsplash.com/photo-1502602898534-47d3c0c2b0d3?auto=format&fit=crop&w=400&q=80"
+                src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=400&q=80"
                 alt="Paris"
                 className="w-full h-48 object-cover"
               />

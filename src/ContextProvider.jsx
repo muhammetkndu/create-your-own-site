@@ -1,29 +1,29 @@
-import { createContext, useState} from "react";
+import { createContext, useState } from "react";
 
 export const AppContext = createContext();
 
-export const AppProvider = ({children}) => {
+export const AppProvider = ({ children }) => {
 
     const [selectedNavbar, setSelectedNavbar] = useState(null);
     const [selectedHome, setSelectedHome] = useState(null);
     const [selectedFooter, setSelectedFooter] = useState(null);
 
-    const updateNavbar = (navbarId) => {setSelectedNavbar(navbarId)}
-    const updateHome = (homeId) => {setSelectedHome(homeId)}
-    const updateFooter = (footerId) => {setSelectedFooter(footerId)}
+    const updateNavbar = setSelectedNavbar;
+    const updateHome = setSelectedHome;
+    const updateFooter = setSelectedFooter;
 
-    return(
+    return (
 
-    <AppContext.Provider value={{
-        updateNavbar, 
-        selectedNavbar,
-        selectedHome,
-        updateHome,
-        updateFooter,
-        selectedFooter
+        <AppContext.Provider value={{
+            updateNavbar,
+            selectedNavbar,
+            selectedHome,
+            updateHome,
+            updateFooter,
+            selectedFooter
         }}>
-        {children}
-    </AppContext.Provider>
+            {children}
+        </AppContext.Provider>
 
     )
 

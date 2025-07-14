@@ -5,6 +5,7 @@ import { AppProvider } from "./ContextProvider";
 import Modal from "./modal";
 import PrewievPage from "./PrewievPage";
 import LoadingScreen from "./LoadingScreen";
+import { ROUTES } from "./constants";
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -15,7 +16,7 @@ function App() {
       <BrowserRouter>
         {isLoading && <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />}
         <Routes>
-          <Route path="/" element={
+          <Route path={ROUTES.HOME} element={
             <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50">
               <div className="text-center">
                 <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-8">
@@ -37,7 +38,7 @@ function App() {
               />
             </div>
           } />
-          <Route path="/PrewievPage" element={<PrewievPage />} />
+          <Route path={ROUTES.PREVIEW} element={<PrewievPage />} />
         </Routes>
       </BrowserRouter>
     </AppProvider>
