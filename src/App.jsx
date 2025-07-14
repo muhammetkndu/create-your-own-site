@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Button from "./button"
 import { AppProvider } from "./ContextProvider";
 import Modal from "./modal";
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <AppProvider>
-      <BrowserRouter>
+      <HashRouter>
         {isLoading && <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />}
         <Routes>
           <Route path={ROUTES.HOME} element={
@@ -40,7 +40,7 @@ function App() {
           } />
           <Route path={ROUTES.PREVIEW} element={<PrewievPage />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AppProvider>
   )
 }
